@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="loader" style="font-family: 'Source Code Pro', ;">
+
+		<span id="e">E</span>
+		<span id="n">N</span>
+		<span id="i">I</span>
+		<span id="g">G</span>
+		<span id="m">M</span>
+		<span id="a">A</span>
+		<span id="t">T</span>
+		<span id="e2">E</span>
+
+	</div>
+
+	<script>
+
+
+	var count = 0;
+	var items = ['e', 'n', 'i', 'g', 'm', 'a', 't', 'e2'];
+	var enig = 'ENIGMATE';
+
+
+	setInterval(function(){
+		
+
+		var ran = Math.random() * (126 - 32) + 32;
+		document.getElementById('e').innerHTML = String.fromCharCode(ran);
+
+		var ran = Math.random() * (126 - 32) + 32;
+		document.getElementById('n').innerHTML = String.fromCharCode(ran);
+
+		if(count % 10 == 0){
+			var ran = Math.random() * (126 - 32) + 32;
+			document.getElementById('i').innerHTML = String.fromCharCode(ran);
+		}
+
+		if(count % 10 == 0){
+			var ran = Math.random() * (126 - 32) + 32;
+			document.getElementById('g').innerHTML = String.fromCharCode(ran);
+		}
+
+		if(count % 20 == 0){
+			var ran = Math.random() * (126 - 32) + 32;
+			document.getElementById('m').innerHTML = String.fromCharCode(ran);
+		}
+
+		if(count % 20 == 0){
+			var ran = Math.random() * (126 - 32) + 32;
+			document.getElementById('a').innerHTML = String.fromCharCode(ran);
+		}
+
+		if(count % 30 == 0){
+			var ran = Math.random() * (126 - 32) + 32;
+			document.getElementById('t').innerHTML = String.fromCharCode(ran);
+		}
+
+		if(count % 30 == 0){
+			var ran = Math.random() * (126 - 32) + 32;
+			document.getElementById('e2').innerHTML = String.fromCharCode(ran);
+		}
+
+		count++;
+	}, 40);
+	</script>
+</body>
+</html>
