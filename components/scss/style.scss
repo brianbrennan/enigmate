@@ -1,0 +1,159 @@
+//----------------------------------Imports
+
+@import '../lib/bourbon/app/assets/stylesheets/bourbon';
+@import '../lib/susy/sass/susy';
+@import '../lib/breakpoint-sass/stylesheets/breakpoint';
+
+//-------------Fonts
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700|PT+Mono);
+
+
+//-------------Susy settings
+
+$susy: (
+	columns: 12,
+	gutter-position:after
+);
+
+//----------------------------------Variables
+
+
+//----------------Space Variables
+$mic: 			3px;
+$tny: 			8px;
+$sm: 			15px;
+$reg: 			30px;
+$med: 			45px;
+$lg: 			60px;
+$xl: 			90px;
+$xxl: 			120px;
+
+//---------------Font Size Variables
+$tnyFontSize:	12px;
+$smFontSize:	14px;
+$regFontSize:	16px;
+$medFontSize:	20px;
+$lgFontSize:	36px;
+$xlFontSize:	48px;
+$xxlFontSize:	72px;
+
+//--------------Color Variables
+$true-white:	#FFF;
+$white:			#F0F5F9;
+$grey:			#C9D6DF;
+$dark-grey:		#52616B;
+$black:			#1E2022;
+
+//-------------Fonts
+$body:			'PT Mono', ;
+$headline:		'Montserrat', sans-serif;
+
+
+
+//----------------------------------Styles
+body{
+	background:$white;
+	color:$dark-grey;
+	font-family:$body;
+}
+
+*:focus{
+	outline:none;
+}
+
+a{
+	color:inherit;
+	text-decoration:none;
+
+	&:hover{
+		text-decoration: line-through;
+	}
+}
+
+.wrapper{
+	@include container(1440px);
+}
+
+header{
+	
+	.logo{
+		font-family:$headline;
+		font-size: $lgFontSize;
+		text-transform: uppercase;
+		display:inline-block;
+		padding:$tny;
+		letter-spacing:$mic;
+	}
+
+	nav{
+		@include span(last 6);
+
+		ul{
+			float:right;
+		}
+
+		li{
+			display:inline-block;
+			padding:$sm $reg;
+			font-size:$medFontSize;
+		}
+	}
+}
+
+.hero{
+	min-height:200px;
+	margin-top:$xxl;
+
+	form{
+		@include span(6);
+
+		.submits{
+			display:block;
+			clear:left;
+		}
+	}
+
+	.output{
+		@include span(last 6);
+	}
+}
+
+input[type="text"], textarea{
+	padding:$tny;
+	border:none;
+	display:block;
+	margin-top:$med;
+	resize:none;
+	font-family:$body;
+	background:$white;
+	color:$dark-grey;
+}
+
+input[type="text"]{
+	font-size:$lgFontSize;
+}
+
+input[type="submit"], input[type="button"]{
+	background-color:$black;
+	color:$white;
+	border:none;
+	font-size:$medFontSize;
+	padding:$sm $reg;
+	cursor:pointer;
+
+	@include transition(0.1s background-color ease-in);
+
+	&:hover{
+		background-color:$dark-grey;
+	}
+}
+
+textarea{
+	font-size:$regFontSize;
+	width:100%;
+	height:$xxl * 4;
+}
+
+.about{
+	width:600px;
+}

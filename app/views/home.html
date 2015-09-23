@@ -1,0 +1,16 @@
+<div class="hero">
+	<div class="wrapper">
+		<form action="">
+			<input type="text" id="Key" placeholder="Enter Secret Key" ng-model="key" ng-required="true">
+			<textarea id="Message" placeholder="Enter Message to Encrypt or Decrypt" ng-model="message"></textarea>
+			<div class="submits">
+				<input type="button" value="Encrypt" ng-click="enigmate.encrypt()">
+				<input type="button" value="Decrypt" ng-click="enigmate.decrypt()">
+			</div>
+		</form>
+		<div class="output">
+			
+			{{enigmate.outMessage}}
+		</div>
+	</div>
+</div>

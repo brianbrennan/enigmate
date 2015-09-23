@@ -1,0 +1,35 @@
+{
+  "name": "slimpickin",
+  "version": "0.8.2",
+  "homepage": "https://github.com/brianbrennan/slimpickin",
+  "authors": [
+    "Brian Brennan <me@brianbrennan.com>"
+  ],
+  "main": [
+    "dist/slimpickin.js"
+  ],
+  "description": "A DOM Element Selection Tool",
+  "keywords": [
+    "DOM",
+    "Selection",
+    "Element",
+    "JQuery"
+  ],
+  "directory": "components/lib/",
+  "license": "MIT",
+  "ignore": [
+    "components",
+    "node_modules",
+    ".bowerrc",
+    "bower.json",
+    "gulpfile.js",
+    "index.html",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "bourbon": "~4.2.4",
+    "susy": "~2.2.5",
+    "breakpoint": "~4.6.4"
+  }
+}

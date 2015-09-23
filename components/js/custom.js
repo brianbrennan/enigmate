@@ -1,0 +1,2 @@
+S.ready(function(){
+});

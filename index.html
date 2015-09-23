@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Enigmate | Send Secret Messages</title>
+	<base href="/">
+	<script src="components/lib/slimpickin/dist/slimpickin.js"></script>
+
+	<script src="components/script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-route.js"></script>
+
+	<script src="app/app.js"></script>
+
+	<link rel="stylesheet" href="components/styles.css">
+
+</head>
+<body ng-app="app">
+
+	<header>
+		<div class="wrapper">
+			<div class="logo">
+				<a ng-href="/#/">Enigmate</a>
+			</div>
+
+			<nav>
+				<ul>
+					<li><a ng-href="/#/">Home</a></li>
+					<li><a ng-href="/#/about">About</a></li>
+					<li><a ng-href="/#/contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div class="ng-view"></div>
+	
+	
+	<script src="//localhost:35729/livereload.js"></script>
+</body>
+</html>
