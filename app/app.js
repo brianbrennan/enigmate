@@ -1,5 +1,21 @@
 angular.module("app", ['ngRoute'])
 
+.controller('mainController', function($scope){
+
+	var vm = this;
+
+	vm.isViewLoading = false;
+	$scope.$on('$routeChangeStart', function() {
+		vm.isViewLoading = true;
+	});
+	$scope.$on('$routeChangeSuccess', function() {
+		vm.isViewLoading = false;
+	});
+	$scope.$on('$routeChangeError', function() {
+		vm.isViewLoading = false;
+	});
+})
+
 .controller("enigmateController", function($scope, Enigma) {
 
 	var vm = this;
@@ -9,7 +25,6 @@ angular.module("app", ['ngRoute'])
 	vm.encrypt = function(){
 		Enigma.setRotors($scope.key);
 		vm.outMessage = Enigma.encrypt($scope.message);
-		console.log($scope.message);
 	};
 
 	vm.decrypt = function(){
@@ -73,46 +88,46 @@ angular.module("app", ['ngRoute'])
 			this.atRotor = this.rotorSettings.length - 1;
 
 				//get to point that rotor settings should be
-			for(var i = 0; i < s.length; i++){
-				this.step();
-			}
-
-			for(var i = s.length - 1; i >= 0; i--){
-				var addChar = s[i];
-
-				for(var j = this.rotorSettings.length - 1; j >= 0; j--){
-					addChar = this.deRotorize(addChar);
+				for(var i = 0; i < s.length; i++){
+					this.step();
 				}
-				this.atRotor = this.rotorSettings.length - 1;
-				this.deStep();
 
-				message = addChar + message;
+				for(var i = s.length - 1; i >= 0; i--){
+					var addChar = s[i];
+
+					for(var j = this.rotorSettings.length - 1; j >= 0; j--){
+						addChar = this.deRotorize(addChar);
+					}
+					this.atRotor = this.rotorSettings.length - 1;
+					this.deStep();
+
+					message = addChar + message;
+				}
+
+				this.rotorSettings = saveSettings;
+
+				this.atRotor = 0;
+
+				return message;
+			},
+			deRotorize: function(c){
+				var givenCharCode = c.charCodeAt(0) - 32;
+				var rotorCharCode = this.rotorSettings.charCodeAt(this.atRotor) - 32;
+
+				this.atRotor--;
+
+				var num = (givenCharCode - rotorCharCode + (93 * this.rotorSettings.length)) % 93 + 32;
+
+				return String.fromCharCode(num);
+			},
+			deStep: function(){
+				var newSettings = "";
+				for(var i = 0; i < this.rotorSettings.length; i++){
+					newSettings = newSettings + String.fromCharCode(this.rotorSettings.charCodeAt(i) - 1);
+				}
+
+				this.rotorSettings = newSettings;
 			}
-
-			this.rotorSettings = saveSettings;
-
-			this.atRotor = 0;
-
-			return message;
-		},
-		deRotorize: function(c){
-			var givenCharCode = c.charCodeAt(0) - 32;
-			var rotorCharCode = this.rotorSettings.charCodeAt(this.atRotor) - 32;
-
-			this.atRotor--;
-
-			var num = (givenCharCode - rotorCharCode + (93 * this.rotorSettings.length)) % 93 + 32;
-
-			return String.fromCharCode(num);
-		},
-		deStep: function(){
-			var newSettings = "";
-			for(var i = 0; i < this.rotorSettings.length; i++){
-				newSettings = newSettings + String.fromCharCode(this.rotorSettings.charCodeAt(i) - 1);
-			}
-
-			this.rotorSettings = newSettings;
-		}
 		}
 	})
 
