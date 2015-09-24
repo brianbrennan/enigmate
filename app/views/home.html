@@ -1,7 +1,7 @@
 <div class="hero">
 	<div class="wrapper">
 		<form action="">
-			<input type="text" id="Key" placeholder="Enter Secret Key" ng-model="key" ng-required="true">
+			<input type="text" id="Key" placeholder="Enter Secret Key" ng-model="key" ng-required="true" max-length="20">
 			<textarea id="Message" placeholder="Enter Message to Encrypt or Decrypt" ng-model="message"></textarea>
 			<div class="submits">
 				<input type="button" value="Encrypt" ng-click="enigmate.encrypt()">

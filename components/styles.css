@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700|PT+Mono);
+* {
+  margin: 0;
+  padding: 0; }
+
 body {
   background: #F0F5F9;
   color: #52616B;
@@ -13,14 +17,33 @@ a {
   a:hover {
     text-decoration: line-through; }
 
-.wrapper {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto; }
-  .wrapper:after {
-    content: " ";
-    display: block;
-    clear: both; }
+@media  (min-width: 1440px) {
+  .wrapper {
+    max-width: 1296px;
+    margin-left: auto;
+    margin-right: auto; }
+    .wrapper:after {
+      content: " ";
+      display: block;
+      clear: both; } }
+@media  (min-width: 800) and (max-width: 1439px) {
+  .wrapper {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto; }
+    .wrapper:after {
+      content: " ";
+      display: block;
+      clear: both; } }
+
+.bar-notification {
+  padding: 15px 0;
+  width: 100%;
+  text-align: center;
+  background-color: #52616B;
+  color: #F0F5F9;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; }
 
 header .logo {
   font-family: 'Montserrat', sans-serif;
@@ -84,7 +107,17 @@ input[type="submit"], input[type="button"] {
 textarea {
   font-size: 16px;
   width: 100%;
-  height: 480px; }
+  height: 120px; }
 
-.about {
-  width: 600px; }
+.page {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+  line-height: 2; }
+  .page:after {
+    content: " ";
+    display: block;
+    clear: both; }
+  .page a {
+    text-decoration: underline; }

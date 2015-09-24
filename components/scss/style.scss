@@ -51,6 +51,12 @@ $headline:		'Montserrat', sans-serif;
 
 
 //----------------------------------Styles
+
+*{
+	margin:0;
+	padding:0;
+}
+
 body{
 	background:$white;
 	color:$dark-grey;
@@ -71,7 +77,23 @@ a{
 }
 
 .wrapper{
-	@include container(1440px);
+	@include breakpoint(1440px){
+		@include container(1296px);
+	}
+	@include breakpoint(800 1439px){
+		@include container(90%);
+	}
+}
+
+.bar-notification{
+	padding:$sm 0;
+	width:100%;
+	text-align:center;
+	background-color:$dark-grey;
+	color:$white;
+	font-family: $headline;
+	font-size:$smFontSize;
+
 }
 
 header{
@@ -151,9 +173,19 @@ input[type="submit"], input[type="button"]{
 textarea{
 	font-size:$regFontSize;
 	width:100%;
-	height:$xxl * 4;
+	height:$xxl;
 }
 
 .about{
-	width:600px;
+	
+}
+
+.page{
+	@include container(600px);
+	margin-top:$xxl;
+	line-height:2;
+
+	a{
+		text-decoration: underline;
+	}
 }

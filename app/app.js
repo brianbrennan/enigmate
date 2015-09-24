@@ -1,17 +1,17 @@
 angular.module("app", ['ngRoute'])
 
-.controller('mainController', function($scope){
+.controller('mainController', function($rootScope){
 
 	var vm = this;
 
 	vm.isViewLoading = false;
-	$scope.$on('$routeChangeStart', function() {
+	$rootScope.$on('$routeChangeStart', function() {
 		vm.isViewLoading = true;
 	});
-	$scope.$on('$routeChangeSuccess', function() {
+	$rootScope.$on('$routeChangeSuccess', function() {
 		vm.isViewLoading = false;
 	});
-	$scope.$on('$routeChangeError', function() {
+	$rootScope.$on('$routeChangeError', function() {
 		vm.isViewLoading = false;
 	});
 })
@@ -141,6 +141,10 @@ angular.module("app", ['ngRoute'])
 
 	.when('/about', {
 		templateUrl: 'app/views/about.html'
+	})
+
+	.when('/how-to', {
+		templateUrl: 'app/views/how-to.html'
 	});
 
 
